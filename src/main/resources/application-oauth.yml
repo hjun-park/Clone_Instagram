@@ -1,0 +1,10 @@
+oauth2:
+  client:
+    google:
+      base-url: https://accounts.google.com/o/oauth2/v2/auth
+      client-id: 201578425726-vlvsingacdtr43l1rqu9tsoar667lkgu.apps.googleusercontent.com
+      client-secret: W_22w3sHphrmx6Sl3gEK3kt0
+      callback-url: http://localhost:9000/auth/google/callback
+      token-url: https://oauth2.googleapis.com/token
+
+

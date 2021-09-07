@@ -1,0 +1,23 @@
+server:
+  port: 9000 # 01. ???? 8080
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+  profiles:
+    active: prod
+    include: oauth
+
+
+
+
