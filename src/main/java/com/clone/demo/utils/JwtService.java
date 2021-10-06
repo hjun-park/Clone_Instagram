@@ -24,7 +24,7 @@ public class JwtService {
     @param userIdx
     @return String
      */
-    public String createJwt(int userIdx){
+    public String createJwt(Long userIdx){
         Date now = new Date();
         return Jwts.builder()
                 .setHeaderParam("type","jwt")
@@ -49,7 +49,7 @@ public class JwtService {
     @return int
     @throws BaseException
      */
-    public Object getUserIdx() throws BaseException{
+    public Long getUserIdx() throws BaseException{
         //1. JWT 추출
         String accessToken = getJwt();
         if(accessToken == null || accessToken.length() == 0){
@@ -68,10 +68,11 @@ public class JwtService {
 
         // 3. userIdx 추출
 //        return claims.getBody().get("userIdx",Integer.class);
-		return claims.getBody().get("userIdx");
-    }
+		// >> pt2 : Object To Long
+		 return Long.valueOf(String.valueOf(claims.getBody().get("userIdx")));
+	}
 
-	public Object getUserEmail(String token) throws BaseException{
+	public Long getUserEmail(String token) throws BaseException{
 		//1. JWT 추출
 		if(token == null || token.length() == 0){
 			throw new BaseException(EMPTY_JWT);
@@ -89,7 +90,7 @@ public class JwtService {
 
 		// 3. userIdx 추출
 //		return claims.getBody().get("userIdx",Integer.class);
-		return claims.getBody().get("userIdx");
+		return Long.valueOf(String.valueOf(claims.getBody().get("userIdx")));
 	}
 
 }
