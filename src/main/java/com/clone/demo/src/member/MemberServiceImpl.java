@@ -4,10 +4,7 @@ import com.clone.demo.config.BaseException;
 import com.clone.demo.config.BaseResponseStatus;
 import com.clone.demo.config.BaseStatus;
 import com.clone.demo.config.secret.Secret;
-import com.clone.demo.src.member.model.LoginReq;
-import com.clone.demo.src.member.model.MemberRes;
-import com.clone.demo.src.member.model.Member;
-import com.clone.demo.src.member.model.SignUpReq;
+import com.clone.demo.src.member.model.*;
 import com.clone.demo.utils.AES128;
 import com.clone.demo.utils.JwtService;
 import lombok.RequiredArgsConstructor;
@@ -78,6 +75,16 @@ public class MemberServiceImpl implements MemberService {
 			throw new BaseException(FAILED_TO_LOGIN);
 		}
 
+	}
+
+	@Override
+	public GetMemberRes findMemberProfile(String username) throws BaseException {
+		return null;
+	}
+
+	@Override
+	public Long modifyMemberProfile(String username) throws BaseException {
+		return null;
 	}
 
 	@Override

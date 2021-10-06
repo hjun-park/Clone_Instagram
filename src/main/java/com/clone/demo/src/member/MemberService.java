@@ -30,4 +30,10 @@ public interface MemberService {
 	// 05. 회원 로그인
 	MemberRes login(LoginReq loginReq) throws BaseException;
 
+	// 멤버 프로필 정보
+	GetMemberRes findMemberProfile(String username) throws BaseException;
+
+	// 멤버 프로필 수정
+	Long modifyMemberProfile(String username) throws BaseException;
+
 }
