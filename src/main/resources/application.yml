@@ -18,7 +18,13 @@ spring:
     active: prod
     include: oauth
 
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace
 
-
-
+# p6spy
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true
 
