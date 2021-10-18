@@ -11,7 +11,7 @@ import javax.validation.constraints.Past;
 import java.time.LocalDate;
 import java.util.Date;
 
-@Getter
+@Getter	@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @DynamicInsert	// !!!!!!!! DB기본값 적용시키기 위한 설정 [ https://goodteacher.tistory.com/369 ]
 @Table(name = "MEMBER")
@@ -50,9 +50,6 @@ public class Member { //extends BaseEntity {
 
 	@Enumerated(EnumType.STRING)
 	private BaseStatus status;
-
-	public Member() {
-	}
 
 	public void setMember(Member member) {
 		this.imageUrl = member.getImageUrl();
