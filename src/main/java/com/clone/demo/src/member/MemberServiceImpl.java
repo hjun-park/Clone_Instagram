@@ -28,8 +28,14 @@ public class MemberServiceImpl implements MemberService {
 	private final JwtService jwtService;
 
 	@Override
-	public Optional<Member> find(Long memberId) {
-		return memberRepository.findById(memberId);
+	public Member find(Long memberId) throws BaseException{
+		Optional<Member> findMember = memberRepository.findById(memberId);
+
+		if (findMember.isPresent()) {
+			return findMember.get();
+		} else {
+			throw new BaseException(DATABASE_ERROR);
+		}
 	}
 
 

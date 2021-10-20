@@ -30,12 +30,6 @@ public class Post {
 	@Enumerated(EnumType.STRING)
 	private BaseStatus status;
 
-	@Builder
-	public Post(Long id, String content) {
-		this.id = id;
-		this.content = content;
-	}
-
 	// 양방향 연관관계
 	@OneToMany(mappedBy = "post")
 	private List<PostImage> postImages = new ArrayList<>();
@@ -49,8 +43,7 @@ public class Post {
 	}
 
 	@Builder
-	public Post(Long id, Member member, String content) {
-		this.id = id;
+	public Post(Member member, String content) {
 		this.member = member;
 		this.content = content;
 	}

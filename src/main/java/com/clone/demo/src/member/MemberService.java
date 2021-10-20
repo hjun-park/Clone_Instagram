@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface MemberService {
 
 	// 01. 회원 정보 조회
-	Optional<Member> find(Long memberId);
+	Member find(Long memberId) throws BaseException;
 
 	// 02. 회원 정보 저장
 	MemberRes join(SignUpReq signUpReq) throws BaseException;

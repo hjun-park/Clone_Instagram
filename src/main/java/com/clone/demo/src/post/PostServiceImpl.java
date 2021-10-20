@@ -3,6 +3,9 @@ package com.clone.demo.src.post;
 import com.clone.demo.config.BaseException;
 import com.clone.demo.config.BaseResponseStatus;
 import com.clone.demo.config.BaseStatus;
+import com.clone.demo.src.member.MemberRepository;
+import com.clone.demo.src.member.MemberService;
+import com.clone.demo.src.member.model.Member;
 import com.clone.demo.src.post.model.GetMemberPostRes;
 import com.clone.demo.src.post.model.GetPostDetailRes;
 import com.clone.demo.src.post.model.Post;
@@ -25,10 +28,31 @@ import static com.clone.demo.config.BaseResponseStatus.INVALID_JWT;
 public class PostServiceImpl implements PostService{
 
 	private final PostRepository postRepository;
+	private final MemberService memberService;
 	private final JwtService jwtService;
 
 	@Override
 	public Long newPost(String content) throws BaseException {
+		/*
+			1. JWT 검증
+			2. 게시글 작성
+		 */
+		Long memberId = jwtService.getUserIdx();
+
+		Member findMember = memberService.find(memberId);
+
+		Post post = Post.builder()
+			.member(findMember)
+			.content(content)
+			.build();
+
+		Post savedPost = postRepository.save(post);
+
+		return savedPost.getId();
+	}
+
+	@Override
+	public List<String> findImages(Long postId) throws BaseException {
 		return null;
 	}
 
@@ -76,7 +100,7 @@ public class PostServiceImpl implements PostService{
 
 	@Override
 	public List<GetMemberPostRes> findPosts(Long memberId) throws BaseException {
-		find
+		return null;
 	}
 
 	@Override
