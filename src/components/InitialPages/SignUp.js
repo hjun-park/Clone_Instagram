@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Footer from '../Common_Elements/Footer';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -92,7 +91,6 @@ const SignUp = () => {
         <span>AppStore</span>
         <span>GooglePlay</span>
       </div>
-      <Footer />
     </div>
   );
 };

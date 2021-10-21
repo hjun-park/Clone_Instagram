@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Footer from '../Common_Elements/Footer';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -65,7 +64,6 @@ const Login = () => {
         <span>계정이 없으신가요?</span>
         <span>가입하기</span>
       </div>
-      <Footer />
     </div>
   );
 };
