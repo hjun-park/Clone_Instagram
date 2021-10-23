@@ -10,6 +10,7 @@ const Navigation = () => {
       <div>
         <span>Home</span>
         <span>DM</span>
+        <span>Upload</span>
         <span>Like!</span>
         <span>Profile</span>
       </div>
